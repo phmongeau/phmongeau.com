@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Philippe Mongeau - Compositing Breakdown</title>
+<link media="all" href="/css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<header>
+    <h1><a href="/">PhMongeau</a></h1>
+</header>
+<div id="content">
+    <!-- <ul class="imglist"> -->
+    <!--     <span>stuff</span> -->
+    <!--     <li class="fade"> -->
+    <!--         <img src="/images/010_barBeauty.png" /> -->
+    <!--     <span class="imgcaption"> A caption </span> -->
+    <!--     </li> -->
+    <!--     <li class="fade"> -->
+    <!--         <img src="/images/chaise_01.jpg" /> -->
+    <!--     </li> -->
+    <!--     <li class="fade"> -->
+    <!--         <img src="/images/chaise_02.jpg" /> -->
+    <!--     </li> -->
+    <!--     <li class="fade"> -->
+    <!--         <img src="/images/mongeaup_bertrand_2.jpg" /> -->
+    <!--     </li> -->
+    <!--     <li class="fade"> -->
+    <!--         <img src="/images/mongeaup_bertrand_3.jpg" /> -->
+    <!--     </li> -->
+    <!-- </ul> -->
+    <div class="imgmain">
+        <div class="comp">
+            <div class="crop">
+                <img src="/images/020_decorBty.001.png" alt="" />
+            </div>
+            <div class="crop" style="height: 50%;">
+                <img src="/images/020_decorCmp.001.png" alt="" />
+            </div>
+        </div>
+        <span class="imgcaption"> A caption </span>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    var $ = function(sel) {
+        return Array.prototype.slice.call(document.querySelectorAll(sel));
+    }
+    window.onload = function() {
+        var container = $(".comp")[0];
+        var layers = $(".crop");
+        var topL = layers[layers.length - 1];
+        container.onwheel = function(evt) {
+            evt.preventDefault();
+            // topL.style.heightevt.deltaY
+            currentH = parseFloat(topL.style.height);
+            //console.log(currentH);
+            currentH += evt.deltaY*2;
+            topL.style.height = currentH + "%";
+        }
+    }
+</script>
+</html>
