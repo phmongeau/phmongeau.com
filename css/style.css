@@ -81,16 +81,52 @@ header h1 a {
 #content {
     width: 90%;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 ul.imglist {
     float: left;
     height: 720px;
     overflow: auto;
-    /* width: 150px; */
     width: 150px;
     margin-right: 10px;
+    margin-top: 5px;
+}
+
+#navbar {
+    display:block;
+    height: 30px;
+    width: 90%;
+    margin: 0 auto;
+    font-weight: 600;
+}
+span.cat {
+    float: left;
+    text-align: center;
+    width: 150px;
+    border-bottom: 1px solid #000;
+    height: 30px;
+    line-height: 30px;
+    display: block;
+}
+ul.nav {
+    float: left;
+    margin-left: 5px;
+}
+
+ul.nav li {
+    float: left;
+    margin-left: 5px;
+    line-height: 30px;
+    color: black;
+}
+ul.nav li a {
+    text-decoration: none;
+    color: #000;
+}
+ul.nav li:after {
+    content: '|';
+    margin-left: 15px;
 }
 
 .imgmain {
@@ -98,10 +134,10 @@ ul.imglist {
 }
 
 .imgmain img {
-    /* width: 1280px; */
     max-width: 100%;
     width: 1280px;
-    margin-top: 30px;
+}
+.imgmain img:hover {
 }
 .imgcaption {
     display: block;
@@ -109,17 +145,8 @@ ul.imglist {
     text-align: center;
 }
 
-ul span {
-    text-align: center;
-    width: 100%;
-    display:block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    border-bottom: 1px solid #000;
-    height: 30px;
-}
 
-#content li {
+li.fade {
     background: #000;
     display: block;
     width: 100px;
@@ -130,33 +157,34 @@ ul span {
     margin: 0 auto;
     margin-bottom: 5px;
 }
-#content li:hover {
+li.fade:hover {
     border-radius: 10px;
 }
-#content li img{
-    /* opacity: 0.4; */
-    -moz-transition: all .3s;
+li.fade img{
     max-height: 100px;
     margin-left: -50%;
+    -moz-transition: all .3s;
 }
-#content li img:hover {
+li.fade img:hover {
     opacity: 1;
     border-radius: 10px;
 }
 
 .slideout {
-    /* margin-left: 100%; */
     transform: translateX(100%);
+    -moz-transform: translateX(100%);
 }
 
 .fadeIn {
     animation-duration: .5s;
-    /* animation-name: slidein; */
+    -moz-animation-duration: .5s;
+    -moz-animation-name: roundin;
     animation-name: roundin;
+    -moz-animation-timing-function: ease-out;
     animation-timing-function: ease-out;
 }
 
-@keyframes slidein {
+@-moz-keyframes slidein {
     from {
         margin-left: -100%;
     }
@@ -171,26 +199,19 @@ ul span {
     }
 }
 
-@keyframes roundin {
+@-moz-keyframes roundin {
     from {
-        max-width: 177px;
         margin-left: -100%;
-        margin-top: 280px;
     }
 
     50% {
-        max-width: 177px;
-        margin-left: 551.5px;
-        margin-top: 280px;
+        margin-left: 20%;
     }
 
     to {
-        max-height: 720px;
         margin-left: 0;
-        margin-top: 30px;
     }
 }
-
 .comp {
     position: relative;
     width: 1280px;

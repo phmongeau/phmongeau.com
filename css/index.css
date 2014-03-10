@@ -1,0 +1,236 @@
+body {
+    background: #f0f0f0;
+    font-size: 16px;
+    overflow: hidden;
+}
+
+h1 {
+    font-size: 1.8em;
+    font-weight: 600;
+}
+
+header {
+    width: 18%;
+    height: 100%;
+    background: #292929;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+nav {
+    background: #292929;
+    height: 100%;
+    display: block;
+    overflow: hidden;
+}
+
+nav li {
+    line-height: 2.5;
+    width: 100%;
+    background: #494949;
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-left: 5px solid transparent;
+    -webkit-transition: border 0.5s, background 0.5s;
+    -moz-transition: border 0.5s, background 0.5s;
+    -ms-transition: border 0.5s, background 0.5s;
+    -o-transition: border 0.5s, background 0.5s;
+    transition: border 0.5s, background 0.5s;
+}
+nav li:hover {
+    background: #696969;
+    border-left: 5px solid #ccc;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-family: sans-serif;
+    margin-left: 10px;
+    width: 100%;
+    display: block;
+}
+
+#logo {
+    font-size: 2em;
+    display: block;
+    font-family: sans-serif;
+}
+
+#logo img {
+    max-width: 100%;
+}
+
+header h1 a {
+    color: #000;
+    font-size: 2.5em;
+    text-decoration: none;
+    font-family: serif;
+    margin-left: 160px;
+}
+
+
+#content {
+    top: 0;
+    left: 18%;
+    width: 82%;
+    height: 100%;
+    box-shadow: inset 15px 0px 10px -10px #292929;
+    position: absolute;
+    display: block;
+    padding: 15px;
+    font-size: 20px;
+    overflow: auto;
+}
+
+#content section {
+    position: absolute;
+    top: 15px;
+    width: 90%;
+    opacity: 0;
+    margin-left: -200%;
+    -webkit-transition: opacity 0.5s, margin 0.5s;
+    -moz-transition: opacity 0.5s, margin 0.5s;
+    -ms-transition: opacity 0.5s, margin 0.5s;
+    -o-transition: opacity 0.5s, margin 0.5s;
+    transition: opacity 0.5s, margin 0.5s;
+}
+#content section:target {
+    display: block;
+    opacity: 1;
+    margin-left: 0;
+}
+
+#bio {
+    font-size: 20px;
+    max-width: 500px;
+    float: left;
+}
+ul.contact {
+    float: left;
+    top: 0;
+    border-left: 3px solid #292929;
+    padding: 10px;
+    height: 100%;
+    background: #ddd;
+    margin-left: 20px;
+}
+
+ul.contact li {
+    margin-top: 3px;
+    color: #000;
+    height: 22px;
+}
+
+li.mail:before, li.vimeo:before, li.linkedin:before {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-position: 0 2px;
+    content: '';
+}
+li.mail:before {
+    background: url("../images/mail_icon.png");
+}
+li.vimeo:before {
+    background: url("../images/vimeo_icon.png");
+}
+li.linkedin:before {
+    background: url("../images/linkedin_icon.png");
+}
+
+.thumbs img {
+    display: inline-block;
+    max-width: 200px;
+    border: 3px solid transparent;
+    transition: border .5s;
+}
+.thumbs img:hover {
+    border: 3px solid #292929;
+}
+
+.thumbs {
+    width: 840px;
+    margin: 0 auto;
+}
+
+.zoom {
+    margin: 50px auto 0 auto;
+    max-width: 90%;
+}
+#desc {
+    text-align: center;
+    /* background: #292929; */
+    color: white;
+    padding: 5px;
+}
+
+#imgContainer:before {
+    content: 'x';
+    display:block;
+    background: #292929;
+    color: #ccc;
+    border-radius: 50px;
+    width: 50px;
+    height: 50px;
+    line-height: 40px;
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#imgContainer {
+    position: fixed;
+    z-index: 99999;
+    width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: none;
+}
+
+@media (max-width: 850px) {
+    body {
+        font-size: 16px;
+        overflow: hidden;
+    }
+    header {
+        width: 100%;
+        height: 18%;
+        position:fixed;
+    }
+    #content {
+        margin-top: 20%;
+        left: 0;
+        width: 100%;
+        box-shadow: none;
+        position: fixed;
+        display: block;
+        padding: 15px;
+        font-size: 20px;
+        overflow: auto;
+    }
+    #logo {
+        float: left;
+        height: 100%;
+    }
+    #logo img {
+        max-width: none;
+        max-height: 100%;
+    }
+    nav {
+        float: left;
+        width: 50%;
+        left: 10px;
+        height: 100%;
+    }
+    nav li {
+        height: 20%
+    }
+}

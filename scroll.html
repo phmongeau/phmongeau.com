@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Philippe Mongeau - Compositing Breakdown</title>
+<link media="all" href="/css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<!-- <header> -->
+<!--     <h1><a href="/">PhMongeau</a></h1> -->
+<!-- </header> -->
+<div id="content">
+    <div class="section">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+    <div class="section2">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+    <div class="section">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+    <div class="section2">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+    <div class="section">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+    <div class="section2">
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+        <div class="block"></div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    var $ = function(sel) {
+        return Array.prototype.slice.call(document.querySelectorAll(sel));
+    }
+    window.onscroll = function(evt) {
+        //var yPos = window.scrollY / 2.5;
+        //document.body.style.backgroundPosition =  yPos + "px 0, 0px 0px, 0 0";
+        document.getElementById("content").style.perspectiveOrigin = window.scrollX + "px " + window.scrollY + "px";
+    }
+</script>
+<style type="text/css">
+body {
+    transition: none !important;
+    background: radial-gradient(#cdc 30%, transparent 31%),
+                radial-gradient(#444 50%, transparent 51%),
+                url("images/010_barBeauty.png");
+    background-position: 0 0, 0px 0px, 0 0;
+    background-size: 320px 320px, 320px 320px, 100%;
+    background-attachment: fixed, scroll, fixed;
+}
+header {
+    border: none;
+}
+h1 {
+    border-bottom: 3px solid white;
+}
+header h1 a {
+    color: #fff;
+}
+#content {
+    perspective: 600px;
+    perspective-origin: 0 0;
+    /*perspective: 600px;
+    background: rgba(255,255,255,0.7);*/
+}
+.block {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    background: #ccf;
+    margin: 5px;
+    /*transform: translateZ(-100px);*/
+    z-index: 10;
+}
+.section {
+    transform: translateZ(-100px);
+}
+.section2 {
+    transform: translateZ(100px);
+}
+.section2 .block {
+    background: #ffc;
+    z-index: 10000;
+}
+</style>
+</html>

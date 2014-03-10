@@ -3,75 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <title>Philippe Mongeau</title>
-<link media="all" href="/css/style.css" type="text/css" rel="stylesheet" />
+<link media="all" href="css/reset.css" type="text/css" rel="stylesheet" />
+<link media="all" href="css/index.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 <header>
-    <h1><a href="/">PhMongeau</a></h1>
+    <div id="logo">
+        <a href="/">
+            <img alt="Philippe Mongeau" title="Philippe Mongeau" src="logo.png" />
+        </a>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="#info">Info</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#lesiege">Film: Le Siege</a></li>
+        </ul>
+    </nav>
 </header>
 <div id="content">
-    <ul class="imglist">
-        <span>stuff</span>
-        <li class="fade">
-            <img src="/images/010_barBeauty.png" />
-        <span class="imgcaption"> A caption </span>
-        </li>
-        <li class="fade">
-            <img src="/images/chaise_01.jpg" />
-        </li>
-        <li class="fade">
-            <img src="/images/chaise_02.jpg" />
-        </li>
-        <li class="fade">
-            <img src="/images/mongeaup_bertrand_2.jpg" />
-        </li>
-        <li class="fade">
-            <img src="/images/mongeaup_bertrand_3.jpg" />
-        </li>
-    </ul>
-    <div class="imgmain">
-        <img id="mainimg" src="" alt="" />
-        <span class="imgcaption"> A caption </span>
-    </div>
+    <section id="info">
+        <div id="bio">
+Philippe Mongeau est un artiste 3D et programmeur. etc. blablabalbabla. Je suis un étudiant, artiste et progammeur. Je fait principalement des pages web et du développement de jeu. Certains de mes jeux sont open source et peuvent servir aux gens qui essaye d'apprendre à en faire. Vous trouverez sur cette page les autres endroit où je suis présent sur le web. 
+        </div>
+        <ul class="contact">
+            <h2> Contact: </h2>
+            <li class="mail"><a href="mailto:ph.mongeau@gmail.com">ph.mongeau@gmail.com</a></li>
+            <li class="vimeo"><a href="http://vimeo.com/phmongeau">vimeo</a></li>
+            <li class="linkedin"><a href="http://www.linkedin.com/in/phmongeau">linkedin</a></li>
+        </ul>
+    </section>
+
+    <section id="portfolio">
+        Des images pi-toute, pi-toute.
+        <div class="thumbs">
+            <a href="images/chaise_01.jpg" ><img src="images/chaise_01.jpg" /></a>
+            <a href="images/chaise_01.jpg" ><img src="images/chaise_01.jpg" /></a>
+            <a href="images/chaise_01.jpg" ><img src="images/chaise_01.jpg" /></a>
+            <a href="images/chaise_01.jpg" ><img src="images/chaise_01.jpg" /></a>
+            <a href="images/chaise_01.jpg" ><img src="images/chaise_01.jpg" /></a>
+            <a href="images/020_decorBty.001.png" ><img src="images/020_decorBty.001.png" /></a>
+            <a href="images/020_decorOcc.001.png" ><img src="images/020_decorOcc.001.png" /></a>
+            <a href="images/chaise_02.jpg" ><img src="images/chaise_02.jpg" /></a>
+            <a href="images/020_decorBty.001.png" ><img src="images/020_decorBty.001.png" /></a>
+            <a href="images/020_decorOcc.001.png" ><img src="images/020_decorOcc.001.png" /></a>
+            <a href="images/chaise_02.jpg" ><img src="images/chaise_02.jpg" /></a>
+            <a href="images/020_decorBty.001.png" ><img src="images/020_decorBty.001.png" /></a>
+            <a href="images/020_decorOcc.001.png" ><img src="images/020_decorOcc.001.png" /></a>
+            <a href="images/chaise_02.jpg" ><img src="images/chaise_02.jpg" /></a>
+            <a href="images/020_decorBty.001.png" ><img src="images/020_decorBty.001.png" /></a>
+            <a href="images/020_decorOcc.001.png" ><img src="images/020_decorOcc.001.png" /></a>
+            <a href="images/chaise_02.jpg" ><img src="images/chaise_02.jpg" /></a>
+            <a href="images/020_decorBty.001.png" ><img src="images/020_decorBty.001.png" /></a>
+            <a href="images/020_decorOcc.001.png" ><img src="images/020_decorOcc.001.png" /></a>
+            <a href="images/chaise_02.jpg"><img src="images/chaise_02.jpg"></img></a>
+        </div>
+    </section>
+
+    <section id="lesiege">
+        Mon film pi-toute pi-toute.
+    </section>
+</div>
+<div id="imgContainer">
+    <img class="zoom" src="" style="display: none;" />
+    <div id="desc">TEST</div>
 </div>
 </body>
 <script type="text/javascript">
     var $ = function(sel) {
         return Array.prototype.slice.call(document.querySelectorAll(sel));
     }
-    window.onload = function() {
-        var images = document.querySelectorAll(".fade img");
-        var mainImg = document.getElementById("mainimg");
-        for (var i = 0; i < images.length; ++i) {
-            var img = images[i];
-            img.index = i;
 
-            img.onclick = function() {
-                window.history.replaceState({}, "", "/#"+this.index);
+    var z = $(".zoom")[0];
+    var c = document.getElementById("imgContainer");
 
-                $(".slideout").forEach(function(v,i,a) {
-                        v.classList.remove('slideout');
-                });
-                this.classList.add('slideout');
-
-                mainImg.classList.add("fadeIn");
-                mainImg.src = this.src;
-
-
-                window.setTimeout(function() {
-                    mainImg.classList.remove("fadeIn")
-                }, 500);
-            }
-        }
-
-        if(window.location.hash) {
-            var index = window.location.hash.substr(1);
-            mainImg.src = images[index].src;
-            images[index].classList.add("slideout");
-        }
-        else {
-            mainImg.src = images[0].src;
-        }
+    z.onclick = function(evt) {
+        z.style.display = "none";
+        c.style.display = "none";
+        z.src = "";
     }
+    c.onclick = z.onclick;
+
+    $("#portfolio .thumbs img").forEach(function(v, i, a) {
+        v.onclick = function(evt) {
+            console.log(z.src);
+            if(z.style.display == "none") {
+                console.log('test');
+                z.src = this.src;
+                z.style.display = "block";
+                c.style.display = "block";
+            }
+            evt.preventDefault();
+        }
+    });
 </script>
 </html>
