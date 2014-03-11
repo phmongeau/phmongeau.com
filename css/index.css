@@ -1,7 +1,12 @@
 body {
     background: #f0f0f0;
-    font-size: 16px;
+    font-family: Georgia;
+    font-size: 20px;
     overflow: hidden;
+}
+
+p {
+    margin-bottom: 20px; /* same as font size */
 }
 
 h1 {
@@ -49,7 +54,7 @@ nav li:hover {
 nav a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.2em;
+    font-size: 20px;
     font-family: sans-serif;
     margin-left: 10px;
     width: 100%;
@@ -107,9 +112,12 @@ header h1 a {
 }
 
 #bio {
-    font-size: 20px;
-    max-width: 500px;
+    max-width: 600px;
     float: left;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
 }
 ul.contact {
     float: left;
@@ -126,43 +134,60 @@ ul.contact li {
     color: #000;
     height: 22px;
 }
+ul.contact li a {
+    color: #000;
+}
 
-li.mail:before, li.vimeo:before, li.linkedin:before {
+ul.contact li:before{
     width: 16px;
     height: 16px;
     display: inline-block;
-    background-position: 0 2px;
     content: '';
+    margin-right: 5px;
+    /* background: #292929; */
 }
-li.mail:before {
+ul.contact li.mail:before {
     background: url("../images/mail_icon.png");
 }
-li.vimeo:before {
+ul.contact li.vimeo:before {
     background: url("../images/vimeo_icon.png");
 }
-li.linkedin:before {
+ul.contact li.linkedin:before {
     background: url("../images/linkedin_icon.png");
 }
-
-.thumbs img {
-    display: inline-block;
-    max-width: 200px;
-    border: 3px solid transparent;
-    transition: border .5s;
+ul.contact li.github:before {
+    background: url("../images/github.ico");
 }
-.thumbs img:hover {
+
+.thumbs li {
+    display: inline-block;
+    width: 45%;
+    border: 3px solid #f0f0f0;
+    transition: border .5s;
+    background: #292929;
+    margin-bottom: 5px;
+}
+.thumbs li:hover {
     border: 3px solid #292929;
 }
+.thumbs img {
+    max-width: 100%;
+    margin-bottom: -3px;
+}
 
-.thumbs {
-    width: 840px;
-    margin: 0 auto;
+.thumbs figcaption {
+    padding: 3px;
+    background: #292929;
+    float:left;
+    color: white;
+    font-size: 15px;
 }
 
 .zoom {
     margin: 50px auto 0 auto;
     max-width: 90%;
 }
+
 #desc {
     text-align: center;
     /* background: #292929; */
@@ -232,5 +257,11 @@ li.linkedin:before {
     }
     nav li {
         height: 20%
+    }
+    .zoom {
+        max-width: 100%;
+    }
+    .thumbs li {
+        width: 100%;
     }
 }
