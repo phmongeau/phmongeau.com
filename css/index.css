@@ -220,6 +220,46 @@ ul.contact li.github:before {
     display: none;
 }
 
+/* #control { */
+/*     width: 90; */
+/*     margin: 0 auto; */
+/* } */
+
+#next, #prev {
+    display: block;
+    position: fixed;
+    margin: 5px;
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    /* background: #292929; */
+    background: black;
+    width: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin: 0 auto;
+    top: 110px;
+    z-index: 99999;
+    opacity: .5;
+    -webkit-transition: opacity 0.5s, background 0.5s;
+    -moz-transition:    opacity 0.5s, background 0.5s;
+    -ms-transition:     opacity 0.5s, background 0.5s;
+    -o-transition:      opacity 0.5s, background 0.5s;
+    transition:         opacity 0.5s, background 0.5s;
+}
+#next:hover, #prev:hover {
+    background: #2929;
+    opacity: 1;
+}
+#next {
+    float:right;
+    right: 5%;
+}
+#prev {
+    float:left;
+    left: 5%;
+}
+
 @media (max-width: 850px) {
     body {
         font-size: 16px;
@@ -264,4 +304,10 @@ ul.contact li.github:before {
     .thumbs li {
         width: 100%;
     }
+    #next, #prev {
+        top: 110px;
+    }
+    #next{ right:  0; }
+    #prev{ left: 0; }
 }
+

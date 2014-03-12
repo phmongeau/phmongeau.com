@@ -51,7 +51,6 @@
                 <figure>
                     <a href="images/chaise_01.jpg"><img src="images/chaise_01.jpg" /></a>
                     <figcaption>
-                        2013: description machin truc 
                         2013: description machin truc foadfafdadsfadsfadfadf
                     </figcaption>
                 </figure>
@@ -126,21 +125,32 @@
         Mon film pi-toute pi-toute.
     </section>
 </div>
-<div id="imgContainer">
+<div id="imgContainer" style="pointer-events: fill;">
     <figure>
+        <div id="control">
+            <a href="#" id="prev">&langle;</a>
+            <a href="#" id="next">&rangle;</a>
+        </div>
         <img class="zoom" src="" style="display: none;" />
         <figcaption id="desc"></figcaption>
     </figure>
 </div>
 </body>
 <script type="text/javascript">
-    var $ = function(sel) {
-        return Array.prototype.slice.call(document.querySelectorAll(sel));
+    var $ = function(sel, element) {
+        if(element) {
+            return Array.prototype.slice.call(element.querySelectorAll(sel));
+        }
+        else {
+            return Array.prototype.slice.call(document.querySelectorAll(sel));
+        }
     }
 
     var z = $(".zoom")[0];
     var c = document.getElementById("imgContainer");
     var d = document.getElementById("desc");
+    
+    activeImg = null;
 
     z.onclick = function(evt) {
         z.style.display = "none";
@@ -149,27 +159,63 @@
     }
     c.onclick = z.onclick;
 
+
+    
+    function showImg(img){
+        z.src = img.src;
+        z.style.display = "block";
+        c.style.display = "block";
+        
+        activeImg = img;
+        //set description
+        try {
+            var fig = this.parentElement.parentElement;
+            d.innerHTML = fig.querySelector("figcaption").innerHTML;
+        }
+        catch (e) {
+            d.innerHTML = "";
+        }
+    }
+    
     $("#portfolio .thumbs img").forEach(function(v, i, a) {
         v.onclick = function(evt) {
             if(z.style.display == "none") {
-                z.src = this.src;
-                z.style.display = "block";
-                c.style.display = "block";
+                showImg(this);
 
-                //set description
-                try {
-                    var fig = this.parentElement.parentElement;
-                    d.innerHTML = fig.querySelector("figcaption").innerHTML;
-                }
-                catch (e) {
-                    console.log("caption text not found");
-                    console.log(e);
-                    d.innerHTML = "";
-                }
             }
 
             evt.preventDefault();
         }
     });
+    
+    function parentLi(el) {
+        var c = el;
+        while (c.tagName !== "LI") {
+            c = c.parentElement;
+        }
+        return c;
+    }
+    
+    function next() {
+        nextLi = parentLi(activeImg).nextElementSibling;
+        img = $("img", nextLi)[0];
+        showImg(img);
+    }
+    function prev() {
+        nextLi = parentLi(activeImg).previousElementSibling;
+        img = $("img", nextLi)[0];
+        showImg(img);
+    }
+    
+    document.getElementById("next").onclick = function(e) { 
+        e.preventDefault();
+        e.stopPropagation();
+        next();
+    }
+    document.getElementById("prev").onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        prev();
+    }
 </script>
 </html>
