@@ -169,10 +169,11 @@
         activeImg = img;
         //set description
         try {
-            var fig = this.parentElement.parentElement;
+            var fig = img.parentElement.parentElement;
             d.innerHTML = fig.querySelector("figcaption").innerHTML;
         }
         catch (e) {
+            cons
             d.innerHTML = "";
         }
     }
