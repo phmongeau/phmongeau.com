@@ -1,3 +1,4 @@
+body {
     background: #f0f0f0;
     font-family: Georgia;
     font-size: 20px;
@@ -29,7 +30,9 @@ nav {
     height: 100%;
     display: block;
     overflow: hidden;
-    font-size: 15px;
+    font-size: 14px;
+    font-family: FiraSans;
+    font-weight: 300;
 }
 
 nav li {
@@ -37,8 +40,7 @@ nav li {
     width: 100%;
     background: #494949;
     display: block;
-    margin-bottom: 5px;
-    margin-top: 5px;
+    margin: 0px 0 5px 0;
     border-left: 5px solid transparent;
     -webkit-transition: border 0.5s, background 0.5s;
     -moz-transition: border 0.5s, background 0.5s;
@@ -51,14 +53,20 @@ nav li:hover {
     border-left: 5px solid #ccc;
 }
 
+nav li.active {
+    /* background: #696969; */
+    border-left: 5px solid #ccc;
+}
+
 nav a {
     color: #fff;
     text-decoration: none;
-    font-family: sans-serif;
+    text-transform: lowercase;
     margin-left: 10px;
     width: 100%;
     display: block;
 }
+
 
 #logo {
     font-size: 2em;
@@ -69,15 +77,6 @@ nav a {
 #logo img {
     max-width: 100%;
 }
-
-header h1 a {
-    color: #000;
-    font-size: 2.5em;
-    text-decoration: none;
-    font-family: serif;
-    margin-left: 160px;
-}
-
 
 #content {
     top: 0;
@@ -180,6 +179,7 @@ ul.contact li.github:before {
     float:left;
     color: white;
     font-size: 15px;
+    font-family: FiraSans;
 }
 
 .zoom {
@@ -248,7 +248,7 @@ ul.contact li.github:before {
     transition:         opacity 0.5s, background 0.5s;
 }
 #next:hover, #prev:hover {
-    background: #2929;
+    background: #292929;
     opacity: 1;
 }
 #next {
@@ -306,21 +306,26 @@ ul.contact li.github:before {
     #logo {
         background: #8E9E6D;
     }
+    #logo a {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
     #logo img {
         max-height: 100%;
         margin-bottom: -5px;
     }
     nav {
-        /* float: left; */
         width: 100%;
         left: 10px;
         height: 100%;
-        font-size: 12px;
+        /* font-size: 12px; */
     }
     nav li {
         height: 20%;
         display: inline-block;
-        padding: 10px;
+        padding-left: 5px;
+        /* margin: 0 0 5px 0; */
     }
     nav li a {
         display: inherit;

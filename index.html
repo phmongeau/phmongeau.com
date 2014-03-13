@@ -5,6 +5,7 @@
     <title>Philippe Mongeau</title>
     <link media="all" href="css/reset.css" type="text/css" rel="stylesheet" />
     <link media="all" href="css/index.css" type="text/css" rel="stylesheet" />
+    <link media="all" href="css/fonts.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 <header>
@@ -15,9 +16,9 @@
     </div>
     <nav class="nav">
         <ul>
-            <li><a href="#info">Info</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#lesiege">Film: Le Siege</a></li>
+            <li><a href="#info">&Agrave; propos</a></li>
         </ul>
     </nav>
 </header>
@@ -173,7 +174,6 @@
             d.innerHTML = fig.querySelector("figcaption").innerHTML;
         }
         catch (e) {
-            cons
             d.innerHTML = "";
         }
     }
@@ -218,5 +218,26 @@
         e.stopPropagation();
         prev();
     }
+
+    function clearClass(cls) {
+        $("." + cls).forEach(function(v,i,a) {
+            v.classList.remove(cls);
+        });
+    }
+
+    // highlight active nav item
+    $("header nav a").forEach(function(v,i,a) {
+        v.onclick = function() {
+            clearClass('active');
+            this.parentElement.classList.add('active');
+        };
+    });
+
+    window.onload = function() {
+        if(window.location.hash === "") {
+            window.location.hash = "portfolio";
+        }
+    }
+
 </script>
 </html>
