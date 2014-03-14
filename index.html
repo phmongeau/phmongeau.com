@@ -10,9 +10,7 @@
 <body>
 <header>
     <div id="logo">
-        <a href="/">
-            <img alt="Philippe Mongeau" title="Philippe Mongeau" src="logo.png" />
-        </a>
+        <a href="/"><img alt="Philippe Mongeau" title="Philippe Mongeau" src="logo.png" /></a>
     </div>
     <nav class="nav">
         <ul>
@@ -24,31 +22,30 @@
 </header>
 <div id="content">
     <section id="info">
+        <h1><a href="#info">&Agrave; propos</a></h1>
         <div id="bio">
             <p>
-                Philippe Mongeau est un artiste 3D et programmeur. etc. blablabalbabla. Je suis
-                un étudiant, artiste et programmeur. Je fait principalement des pages web et du
-                développement de jeu. Certains de mes jeux sont open source et peuvent servir
-                aux gens qui essaye d'apprendre à en faire. Vous trouverez sur cette page les
-                autres endroit où je suis présent sur le web. 
-            </p>
-            <p>
-                AbcdefghijklmnopqrstuvwxyzAbcdefghijklmnopqrstuvwxyzAbcdefghijklmnopqrstuvwxyzAbcdefghijklmnopqrstuvwxyz
+                Philippe Mongeaup, est un artiste 3D et programmeur. Ayant déjà
+                apris les bases de la programmation de manière autodidacte, il entamme des
+                études en animation 3D au Cégep du Vieux Montréal en 2011. Il
+                est présentement entrain de réaliser son premier court métrage
+                d'animation, <a href="#lesiege">Le Siège</a>, qu'il terminera en mai 2014.
             </p>
         </div>
         <ul class="contact">
             <h2>Contact: </h2>
-            <li class="mail"><a href="mailto:ph.mongeau@gmail.com">ph.mongeau@gmail.com</a></li>
-            <li class="linkedin"><a href="http://www.linkedin.com/in/phmongeau">LinkedIn</a></li>
-            <li class="vimeo"><a href="http://vimeo.com/phmongeau">Vimeo</a></li>
-            <li class="github"><a href="http://www.github.com/phmongeau">Github</a></li>
+            <li class="mail"><a target="_blank" href="mailto:ph.mongeau@gmail.com">ph.mongeau@gmail.com</a></li>
+            <li class="linkedin"><a target="_blank" href="http://www.linkedin.com/in/phmongeau">LinkedIn</a></li>
+            <li class="vimeo"><a target="_blank" href="http://vimeo.com/phmongeau">Vimeo</a></li>
+            <li class="github"><a target="_blank" href="http://www.github.com/phmongeau">Github</a></li>
+            <li class="cv"><a target="_blank" href="mongeaup_cv_v01.pdf">CV</a></li>
         </ul>
     </section>
 
     <section id="portfolio">
-        Des images pi-toute, pi-toute.
+        <h1><a href="#portfolio">Portfolio</a></h1>
         <ul class="thumbs">
-            <li>
+            <li class="first">
                 <figure>
                     <a href="images/chaise_01.jpg"><img src="images/chaise_01.jpg" /></a>
                     <figcaption>
@@ -63,7 +60,7 @@
                 </figure>
             </li>
             <li>
-                <a href="images/chaise_01.jpg"><img src="images/chaise_01.jpg" /></a>
+                <a href="images/chaise_01.jpg"><img src="images/mongeaup_bertrand.3.jpg" /></a>
             </li>
             <li>
                 <a href="images/chaise_01.jpg"><img src="images/chaise_01.jpg" /></a>
@@ -98,7 +95,7 @@
             <li>
                 <a href="images/020_decorOcc.001.png"><img src="images/020_decorOcc.001.png" /></a>
             </li>
-            <li>
+            <li
                 <a href="images/chaise_02.jpg"><img src="images/chaise_02.jpg" /></a>
             </li>
             <li>
@@ -116,21 +113,22 @@
             <li>
                 <a href="images/020_decorOcc.001.png"><img src="images/020_decorOcc.001.png" /></a>
             </li>
-            <li>
+            <li class="last">
                 <a href="images/chaise_02.jpg"><img src="images/chaise_02.jpg"></a>
             </li>
         </ul>
     </section>
 
     <section id="lesiege">
+        <h1><a href="#lesiege">Le Si&egrave;ge</a></h1>
         Mon film pi-toute pi-toute.
     </section>
 </div>
 <div id="imgContainer" style="pointer-events: fill;">
     <figure>
         <div id="control">
-            <a href="#" id="prev">&langle;</a>
-            <a href="#" id="next">&rangle;</a>
+            <a href="#" id="prev">&lt;</a>
+            <a href="#" id="next">&gt;</a>
         </div>
         <img class="zoom" src="" style="display: none;" />
         <figcaption id="desc"></figcaption>
@@ -198,13 +196,21 @@
     }
     
     function next() {
-        nextLi = parentLi(activeImg).nextElementSibling;
-        img = $("img", nextLi)[0];
+        nextLi = parentLi(activeImg);
+        if (nextLi.classList.contains("last"))
+            img= activeImg;
+        else
+            img = $("img", nextLi.nextElementSibling)[0];
+
         showImg(img);
     }
     function prev() {
-        nextLi = parentLi(activeImg).previousElementSibling;
-        img = $("img", nextLi)[0];
+        nextLi = parentLi(activeImg);
+        if (nextLi.classList.contains("first"))
+            img= activeImg;
+        else
+            img = $("img", nextLi.previousElementSibling)[0];
+
         showImg(img);
     }
     
@@ -227,9 +233,10 @@
 
     // highlight active nav item
     $("header nav a").forEach(function(v,i,a) {
-        v.onclick = function() {
+        v.onclick = function(e) {
             clearClass('active');
             this.parentElement.classList.add('active');
+            event.preventDefault();
         };
     });
 
@@ -238,6 +245,5 @@
             window.location.hash = "portfolio";
         }
     }
-
 </script>
 </html>

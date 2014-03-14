@@ -10,8 +10,9 @@ p {
 }
 
 h1 {
-    font-size: 1.8em;
-    font-weight: 600;
+    font-size: 1.5em;
+    font-family: FiraSans;
+    font-weight: bold;
 }
 
 header {
@@ -92,21 +93,27 @@ nav a {
 }
 
 #content section {
+    padding-top: 50px;
     position: absolute;
     top: 15px;
     width: 90%;
     opacity: 0;
     margin-left: -200%;
-    -webkit-transition: opacity 0.5s, margin 0.5s;
-    -moz-transition: opacity 0.5s, margin 0.5s;
-    -ms-transition: opacity 0.5s, margin 0.5s;
-    -o-transition: opacity 0.5s, margin 0.5s;
-    transition: opacity 0.5s, margin 0.5s;
+    -webkit-transition: opacity 0.5s, margin-left 0.5s;
+    -moz-transition: opacity 0.5s, margin-left 0.5s;
+    -ms-transition: opacity 0.5s, margin-left 0.5s;
+    -o-transition: opacity 0.5s, margin-left 0.5s;
+    transition: opacity 0.5s, margin-left 0.5s;
 }
 #content section:target {
     display: block;
     opacity: 1;
-    margin-left: 0;
+    margin-left: 8%;
+}
+
+#content section h1 a {
+    color: black;
+    text-decoration: none;
 }
 
 #bio {
@@ -134,6 +141,14 @@ ul.contact li {
 }
 ul.contact li a {
     color: #000;
+    -webkit-transition: color 0.5s;
+    -moz-transition:    color 0.5s;
+    -ms-transition:     color 0.5s;
+    -o-transition:      color 0.5s;
+    transition:         color 0.5s;
+}
+ul.contact li a:hover {
+    color: #798293;
 }
 
 ul.contact li:before{
@@ -142,7 +157,6 @@ ul.contact li:before{
     display: inline-block;
     content: '';
     margin-right: 5px;
-    /* background: #292929; */
 }
 ul.contact li.mail:before {
     background: url("../images/mail_icon.png");
@@ -156,6 +170,12 @@ ul.contact li.linkedin:before {
 ul.contact li.github:before {
     background: url("../images/github.ico");
 }
+ul.contact li.cv:before {
+    content: 'cv';
+    font-family: FiraSans;
+    font-weight: 500;
+}
+
 
 .thumbs li {
     display: inline-block;
@@ -260,7 +280,7 @@ ul.contact li.github:before {
     left: 5%;
 }
 
-@media (max-width: 850px) {
+@media (max-width: 700px) and (orientation: portrait)  {
     body {
         font-size: 16px;
         /* overflow: hidden; */
