@@ -26,6 +26,17 @@ header {
     overflow: hidden;
 }
 
+#footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-family: FiraSans;
+    font-size: 10px;
+    text-align: center;
+    display:block;
+    width: 100%;
+}
+
 nav {
     background: #292929;
     height: 100%;
@@ -280,7 +291,10 @@ ul.contact li.cv:before {
     left: 5%;
 }
 
-@media (max-width: 700px) and (orientation: portrait)  {
+@media only screen and (min-device-width: 320px)
+                   and (max-device-width: 480px)
+                   and (orientation: portrait),
+                   (max-width: 700px) {
     body {
         font-size: 16px;
         /* overflow: hidden; */
@@ -335,11 +349,19 @@ ul.contact li.cv:before {
         max-height: 100%;
         margin-bottom: -5px;
     }
+    #footer {
+        top: 27%; left: 50%; bottom: auto; right: 0;
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
     nav {
         width: 100%;
         left: 10px;
         height: 100%;
-        /* font-size: 12px; */
+        font-size: 16px;
     }
     nav li {
         height: 20%;

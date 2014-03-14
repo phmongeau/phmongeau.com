@@ -19,6 +19,9 @@
             <li><a href="#info">&Agrave; propos</a></li>
         </ul>
     </nav>
+    <div id="footer">
+        <p>&copy; 2014 Philippe Mongeau</p>
+    </div>
 </header>
 <div id="content">
     <section id="info">
@@ -121,7 +124,8 @@
 
     <section id="lesiege">
         <h1><a href="#lesiege">Le Si&egrave;ge</a></h1>
-        Mon film pi-toute pi-toute.
+        <p>Film &agrave; venir, video temporaire:</p>
+        <iframe src="//player.vimeo.com/video/50110823?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=0&amp;loop=1" width="500" height="372" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </section>
 </div>
 <div id="imgContainer" style="pointer-events: fill;">
@@ -236,7 +240,7 @@
         v.onclick = function(e) {
             clearClass('active');
             this.parentElement.classList.add('active');
-            event.preventDefault();
+            //event.preventDefault();
         };
     });
 
