@@ -120,5 +120,13 @@ window.onhashchange = function() {
         menuItem.parentElement.classList.add('active');
     }
 
-    lightsOff(window.location.hash === "#lesiege");
+    if (window.location.hash === "#lesiege") {
+        lightsOff(true);
+    }
+    else {
+        lightsOff(false);
+        // stop video
+        var c = $("#video")[0].innerHTML;
+        $("#video")[0].innerHTML = c;
+    }
 };

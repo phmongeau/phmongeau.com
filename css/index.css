@@ -215,9 +215,19 @@ ul.contact li:hover:before {
 
 
 /* ---VIMEO--- */
-#lesiege iframe {
-    margin: 0 20%;
-    display: block;
+#video iframe {
+    position: absolute;
+    top:  0;
+    left: 0;
+    width: 90%;
+    height: 90%;
+}
+
+#video {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
 }
 
 
