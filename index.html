@@ -6,6 +6,7 @@
     <link media="all" href="css/reset.css" type="text/css" rel="stylesheet" />
     <link media="all" href="css/index.css" type="text/css" rel="stylesheet" />
     <link media="all" href="css/fonts.css" type="text/css" rel="stylesheet" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 </head>
 <body>
 <header>
@@ -28,8 +29,8 @@
         <h1><a href="#info">&Agrave; propos</a></h1>
         <div id="bio">
             <p>
-                Philippe Mongeaup, est un artiste 3D et programmeur. Ayant déjà
-                apris les bases de la programmation de manière autodidacte, il entamme des
+                Philippe Mongeau, est un artiste 3D et programmeur. Ayant déjà
+                appris les bases de la programmation de manière autodidacte, il entame des
                 études en animation 3D au Cégep du Vieux Montréal en 2011. Il
                 est présentement entrain de réaliser son premier court métrage
                 d'animation, <a href="#lesiege">Le Siège</a>, qu'il terminera en mai 2014.
@@ -37,11 +38,11 @@
         </div>
         <ul class="contact">
             <h2>Contact: </h2>
-            <li class="mail"><a target="_blank" href="mailto:ph.mongeau@gmail.com">ph.mongeau@gmail.com</a></li>
-            <li class="linkedin"><a target="_blank" href="http://www.linkedin.com/in/phmongeau">LinkedIn</a></li>
-            <li class="vimeo"><a target="_blank" href="http://vimeo.com/phmongeau">Vimeo</a></li>
-            <li class="github"><a target="_blank" href="http://www.github.com/phmongeau">Github</a></li>
-            <li class="cv"><a target="_blank" href="mongeaup_cv_v01.pdf">CV</a></li>
+            <li class="mail fa-envelope"><a target="_blank" href="mailto:ph.mongeau@gmail.com">ph.mongeau@gmail.com</a></li>
+            <li class="linkedin fa-linkedin-square"><a target="_blank" href="http://www.linkedin.com/in/phmongeau">LinkedIn</a></li>
+            <li class="vimeo fa-vimeo-square"><a target="_blank" href="http://vimeo.com/phmongeau">Vimeo</a></li>
+            <li class="github fa-github-square"><a target="_blank" href="http://www.github.com/phmongeau">Github</a></li>
+            <li class="cv fa-file-text"><a target="_blank" href="mongeaup_cv_v01.pdf">Curriculum vit&aelig;</a></li>
         </ul>
     </section>
 
@@ -124,7 +125,7 @@
 
     <section id="lesiege">
         <h1><a href="#lesiege">Le Si&egrave;ge</a></h1>
-        <p>Film &agrave; venir, video temporaire:</p>
+        <p>Film &agrave; venir; video temporaire:</p>
         <iframe src="//player.vimeo.com/video/50110823?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=0&amp;loop=1" width="500" height="372" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </section>
 </div>
@@ -235,12 +236,24 @@
         });
     }
 
+    function lightsOff(state) {
+        var h = $("header")[0];
+        if(state) {
+            document.body.classList.add("dark");
+            h.classList.add("semi-transp");
+        }
+        else {
+            document.body.classList.remove("dark");
+            h.classList.remove("semi-transp");
+        }
+    }
+
     // highlight active nav item
     $("header nav a").forEach(function(v,i,a) {
         v.onclick = function(e) {
             clearClass('active');
             this.parentElement.classList.add('active');
-            //event.preventDefault();
+            lightsOff(this.href.match("#lesiege$"));
         };
     });
 

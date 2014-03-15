@@ -3,8 +3,27 @@ body {
     font-family: Georgia;
     font-size: 20px;
     overflow: hidden;
+    -webkit-transition: background 1s;
+    -moz-transition:    background 1s;
+    -ms-transition:     background 1s;
+    -o-transition:      background 1s;
+    transition:         background 1s;
 }
 
+.dark {
+    background: #292929;
+}
+.semi-transp {
+    opacity: 0.1;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition:    opacity 0.5s;
+    -ms-transition:     opacity 0.5s;
+    -o-transition:      opacity 0.5s;
+    transition:         opacity 0.5s;
+}
+.semi-transp:hover {
+    opacity: 1;
+}
 p {
     margin-bottom: 20px; /* same as font size */
 }
@@ -127,9 +146,11 @@ nav a {
     text-decoration: none;
 }
 
+
 #bio {
     max-width: 600px;
     float: left;
+    line-height: 1.3;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hyphens: auto;
@@ -166,25 +187,37 @@ ul.contact li:before{
     width: 16px;
     height: 16px;
     display: inline-block;
-    content: '';
-    margin-right: 5px;
+    margin-right: 10px;
+    font-size: 16px;
 }
-ul.contact li.mail:before {
-    background: url("../images/mail_icon.png");
+ul.contact li:hover:before {
+    color: #06a;
 }
-ul.contact li.vimeo:before {
-    background: url("../images/vimeo_icon.png");
-}
-ul.contact li.linkedin:before {
-    background: url("../images/linkedin_icon.png");
-}
-ul.contact li.github:before {
-    background: url("../images/github.ico");
-}
-ul.contact li.cv:before {
-    content: 'cv';
-    font-family: FiraSans;
-    font-weight: 500;
+
+/* ul.contact li.mail:before { */
+/*     background: url("../images/mail_icon.png"); */
+/* } */
+/* ul.contact li.vimeo:before { */
+/*     background: url("../images/vimeo_icon.png"); */
+/* } */
+/* ul.contact li.linkedin:before { */
+/*     background: url("../images/linkedin_icon.png"); */
+/* } */
+/* ul.contact li.github:before { */
+/*     background: url("../images/github.ico"); */
+/* } */
+
+/* ul.contact li.cv:before { */
+/*     content: 'cv'; */
+/*     font-family: FiraSans; */
+/*     font-weight: 500; */
+/* } */
+
+
+/* ---VIMEO--- */
+#lesiege iframe {
+    margin: 0 20%;
+    display: block;
 }
 
 
