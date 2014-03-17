@@ -36,6 +36,11 @@ function showImg(img){
     catch (e) {
         d.innerHTML = "";
     }
+
+    //set size
+    if(c.scrollHeight > window.screen.height) {
+        z.style.maxHeight = window.screen.height - 150 + "px";
+    }
 }
 
 $("#portfolio .thumbs img").forEach(function(v, i, a) {
