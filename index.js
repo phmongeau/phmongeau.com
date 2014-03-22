@@ -13,14 +13,13 @@ var d = document.getElementById("desc");
 
 activeImg = null;
 
-z.onclick = function(evt) {
+function hideImg() {
     z.style.display = "none";
     c.style.display = "none";
     z.src = "";
+    activeImg = null;
 }
-c.onclick = z.onclick;
-
-
+c.onclick = z.onclick = hideImg;
 
 function showImg(img){
     z.src = img.src;
@@ -91,6 +90,22 @@ document.getElementById("prev").onclick = function(e) {
     e.stopPropagation();
     prev();
 }
+
+document.addEventListener("keydown", function(e) {
+    if(activeImg == null) return;
+
+    else if (e.keyCode === 39) { //RIGHT
+        next();
+    }
+    else if(e.keyCode === 37) { //LEFT
+        prev();
+    }
+    else if(e.keyCode === 27) { //ESCAPE
+        hideImg();
+    }
+
+    e.preventDefault();
+});
 
 function clearClass(cls) {
     $("." + cls).forEach(function(v,i,a) {
