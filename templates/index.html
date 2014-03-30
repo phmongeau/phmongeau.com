@@ -51,106 +51,22 @@
     <section id="portfolio">
         <h1><a href="#portfolio">Portfolio</a></h1>
         <ul class="thumbs">
-        
-        
+        {% for img_path, caption in images %}
+        {% if loop.first %}
             <li class="first">
-        
-                <figure>
-                    <a href="images/portfolio/2014_020_decorOcc.001.png"><img src="images/portfolio/2014_020_decorOcc.001.png" /></a>
-                    <figcaption>
-                        
-                    </figcaption>
-                </figure>
-            </li>
-        
-        
-            <li>
-        
-                <figure>
-                    <a href="images/portfolio/2014_020_decorCmp.001.png"><img src="images/portfolio/2014_020_decorCmp.001.png" /></a>
-                    <figcaption>
-                        
-                    </figcaption>
-                </figure>
-            </li>
-        
-        
-            <li>
-        
-                <figure>
-                    <a href="images/portfolio/2014_020_decorBty.001.png"><img src="images/portfolio/2014_020_decorBty.001.png" /></a>
-                    <figcaption>
-                        
-                    </figcaption>
-                </figure>
-            </li>
-        
-        
-            <li>
-        
-                <figure>
-                    <a href="images/portfolio/2014_010_barBeauty.png"><img src="images/portfolio/2014_010_barBeauty.png" /></a>
-                    <figcaption>
-                        
-                    </figcaption>
-                </figure>
-            </li>
-        
-        
-            <li>
-        
-                <figure>
-                    <a href="images/portfolio/2013_mongeaup_bertrand_3.jpg"><img src="images/portfolio/2013_mongeaup_bertrand_3.jpg" /></a>
-                    <figcaption>
-                        
-                    </figcaption>
-                </figure>
-            </li>
-        
-        
-            <li>
-        
-                <figure>
-                    <a href="images/portfolio/2013_mongeaup_bertrand_2.jpg"><img src="images/portfolio/2013_mongeaup_bertrand_2.jpg" /></a>
-                    <figcaption>
-                        
-                    </figcaption>
-                </figure>
-            </li>
-        
-        
-            <li>
-        
-                <figure>
-                    <a href="images/portfolio/2013_mongeaup_bertrand.3.jpg"><img src="images/portfolio/2013_mongeaup_bertrand.3.jpg" /></a>
-                    <figcaption>
-                        
-                    </figcaption>
-                </figure>
-            </li>
-        
-        
-            <li>
-        
-                <figure>
-                    <a href="images/portfolio/2013_chaise_02.jpg"><img src="images/portfolio/2013_chaise_02.jpg" /></a>
-                    <figcaption>
-                        
-                    </figcaption>
-                </figure>
-            </li>
-        
-        
+        {% elif loop.last %}
             <li class="last">
-        
+        {% else %}
+            <li>
+        {% endif %}
                 <figure>
-                    <a href="images/portfolio/2013_chaise_01.jpg"><img src="images/portfolio/2013_chaise_01.jpg" /></a>
+                    <a href="{{ img_path }}"><img src="{{ img_path }}" /></a>
                     <figcaption>
-                        
+                        {{ caption|e }}
                     </figcaption>
                 </figure>
             </li>
-        
+        {% endfor %}
         </ul>
     </section>
 
