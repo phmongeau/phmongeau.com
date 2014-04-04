@@ -46,7 +46,6 @@ $("#portfolio .thumbs img").forEach(function(v, i, a) {
     v.onclick = function(evt) {
         if(z.style.display == "none") {
             showImg(this);
-
         }
 
         evt.preventDefault();

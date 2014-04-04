@@ -17,6 +17,7 @@
     <nav class="nav">
         <ul>
             <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#animation">Animation</a></li>
             <li><a href="#lesiege">Film: Le Siege</a></li>
             <li><a href="#scripts">Scripts</a></li>
             <li><a href="#info">&Agrave; propos</a></li>
@@ -52,7 +53,7 @@
     <section id="portfolio">
         <h1><a href="#portfolio">Portfolio</a></h1>
         <ul class="thumbs">
-        {% for img_path, caption in images %}
+        {% for img_path, thumb_path, caption in images %}
         {% if loop.first %}
             <li class="first">
         {% elif loop.last %}
@@ -61,7 +62,7 @@
             <li>
         {% endif %}
                 <figure>
-                    <a href="{{ img_path }}"><img src="{{ img_path }}" /></a>
+                    <a href="{{ img_path }}"><img src="{{ thumb_path }}" /></a>
                     <figcaption>
                         {{ caption|e }}
                     </figcaption>
@@ -70,11 +71,18 @@
         {% endfor %}
         </ul>
     </section>
+    <section id="animation">
+        <h2>Animation</h2>
+        <h1><a href="#animation">Animation</a></h1>
+        <div class="video">
+            <iframe src="//player.vimeo.com/video/90718233?title=0&amp;byline=0&amp;portrait=0" width="90%" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+    </section>
 
     <section id="lesiege">
         <h1><a href="#lesiege">Le Si&egrave;ge</a></h1>
         <p>&Agrave; venir</p>
-        <div id="video">
+        <div class="video">
             <img style="max-width: 90%;" src="images/lesiege_placeHolder.png" alt="Le Siege" />
         <!--     <iframe src="//player.vimeo.com/video/50110823?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=0&amp;loop=1" width="90%" height="500" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> -->
         </div>
