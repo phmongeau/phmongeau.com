@@ -194,6 +194,15 @@ ul.contact li:hover:before {
     color: #06a;
 }
 
+#scripts li img {
+    display: block;
+    max-width: 80%;
+    margin-bottom: 10px;
+}
+#scripts li p {
+    margin-bottom: 40px;
+}
+
 /* ul.contact li.mail:before { */
 /*     background: url("../images/mail_icon.png"); */
 /* } */
