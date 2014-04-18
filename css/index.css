@@ -188,6 +188,7 @@ ul.contact li:before{
     height: 16px;
     display: inline-block;
     margin-right: 10px;
+    font-family: FontAwesome;
     font-size: 16px;
 }
 ul.contact li:hover:before {
