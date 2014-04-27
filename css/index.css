@@ -248,17 +248,17 @@ ul.contact li:hover:before {
 .thumbs li {
     display: inline-block;
     width: 45%;
-    border: 3px solid #f0f0f0;
+    /* border: 3px solid #f0f0f0; */
+    margin-right: 6px;
     transition: border .5s;
-    background: #292929;
+    /* background: #292929; */
     margin-bottom: 5px;
-}
-.thumbs li:hover {
-    border: 3px solid #292929;
 }
 .thumbs img {
     max-width: 100%;
     margin-bottom: -3px;
+    border: 3px solid #292929;
+    /* border-bottom: none; */
 }
 
 .thumbs figcaption {
@@ -268,6 +268,7 @@ ul.contact li:hover:before {
     color: white;
     font-size: 15px;
     font-family: FiraSans;
+    width: 100%;
 }
 
 .zoom {

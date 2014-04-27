@@ -64,9 +64,11 @@
         {% endif %}
                 <figure>
                     <a href="{{ img_path }}"><img src="{{ thumb_path }}" /></a>
+                    {% if caption %}
                     <figcaption>
                         {{ caption|e }}
                     </figcaption>
+                    {% endif %}
                 </figure>
             </li>
         {% endfor %}
