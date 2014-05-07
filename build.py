@@ -14,7 +14,11 @@ def make_thumb(infile, basepath):
     name, ext = os.path.splitext(infile)
     im = Image.open(os.path.join(basepath,infile))
     im.thumbnail(size, Image.ANTIALIAS)
-    im.save(os.path.join(basepath, "thumbs/",infile), "JPEG")
+    im.save(os.path.join(basepath, "thumbs/", name+".jpg"), "JPEG")
+
+def get_thumb(path):
+    name, ext = os.path.splitext(path)
+    return os.path.join("images/portfolio/thumbs", name + ".jpg")
 
 
 basepath = "images/portfolio"
@@ -34,7 +38,7 @@ img_paths = [i for i in img_paths if not i.endswith(".json")]
 with open("images/portfolio/captions.json", "r") as f:
     captions = json.load(f)
 
-template_images = ((os.path.join("images/portfolio", i), os.path.join("images/portfolio/thumbs", i), captions.get(i, "")) for i in img_paths)
+template_images = ((os.path.join("images/portfolio", i), get_thumb(i), captions.get(i, "")) for i in img_paths)
 
 loader = FileSystemLoader('templates')
 env = Environment(loader=loader)
