@@ -2,6 +2,7 @@
 
 import os
 import glob
+import sys
 from PIL import Image
 
 from jinja2 import Environment
@@ -26,13 +27,14 @@ images = [f for f in os.listdir(basepath)
          if os.path.isfile(os.path.join(basepath,f))
          and os.path.splitext(f)[1].lower() in ('.jpg', '.jpeg', '.png')]
 
-print("generating thumbnails:")
-for i in images:
-    print(os.path.join(basepath, i))
-    make_thumb(i, basepath)
+if len(sys.argv) > 1 and sys.argv[1] == "-t":
+    print("generating thumbnails:")
+    for i in images:
+        print(os.path.join(basepath, i))
+        make_thumb(i, basepath)
 
 
-img_paths = sorted(images)
+img_paths = sorted(images, reverse=True)
 img_paths = [i for i in img_paths if not i.endswith(".json")]
 
 with open("images/portfolio/captions.json", "r") as f:

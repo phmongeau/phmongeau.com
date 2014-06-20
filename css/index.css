@@ -30,7 +30,7 @@ p {
 
 h1 {
     font-size: 1.5em;
-    font-family: FiraSans;
+    font-family: 'Fira Sans';
     font-weight: bold;
 }
 
@@ -49,7 +49,7 @@ header {
     position: absolute;
     left: 0;
     bottom: 0;
-    font-family: FiraSans;
+    font-family: 'Fira Sans';
     font-size: 10px;
     text-align: center;
     display:block;
@@ -62,7 +62,7 @@ nav {
     display: block;
     overflow: hidden;
     font-size: 14px;
-    font-family: FiraSans;
+    font-family: 'Fira Sans';
     font-weight: 300;
 }
 
@@ -219,7 +219,7 @@ ul.contact li:hover:before {
 
 /* ul.contact li.cv:before { */
 /*     content: 'cv'; */
-/*     font-family: FiraSans; */
+/*     font-family: 'Fira Sans'; */
 /*     font-weight: 500; */
 /* } */
 
@@ -277,7 +277,7 @@ ul.thumbs {
     float:left;
     color: white;
     font-size: 15px;
-    font-family: FiraSans;
+    font-family: 'Fira Sans';
     width: 100%;
     margin-bottom: 5px;
 }
