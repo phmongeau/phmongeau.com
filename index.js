@@ -131,6 +131,8 @@ window.onload = function() {
     window.onhashchange();
 };
 
+
+var folioLoaded = false;
 window.onhashchange = function() {
     clearClass('active');
 
@@ -145,7 +147,12 @@ window.onhashchange = function() {
     else {
         lightsOff(false);
         // stop video
-        var c = $("#video")[0].innerHTML;
-        $("#video")[0].innerHTML = c;
+        // var c = $("#video")[0].innerHTML;
+        // $("#video")[0].innerHTML = c;
+
+        if (!folioLoaded && window.location.hash === "#portfolio") {
+            var nscript = $("#portfolio noscript")[0];
+            nscript.parentElement.innerHTML = nscript.innerHTML;
+        }
     }
 };
