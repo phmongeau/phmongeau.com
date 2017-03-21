@@ -254,9 +254,9 @@ ul.thumbs {
     -webkit-column-gap: 10px;
     -moz-column-gap:    10px;
     column-gap:         10px;
-    -webkit-column-fill: auto;
-    -moz-column-fill:    auto;
-    column-fill:         auto;
+    -webkit-column-fill: balance;
+    -moz-column-fill:    balance;
+    column-fill:         balance;
 }
 .thumbs figure {
     margin-bottom: 5px;
@@ -280,6 +280,7 @@ ul.thumbs {
     font-family: 'Fira Sans';
     width: 100%;
     margin-bottom: 5px;
+    display: inline-block;
 }
 
 .zoom {

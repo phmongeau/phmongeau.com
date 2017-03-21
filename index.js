@@ -152,7 +152,9 @@ window.onhashchange = function() {
 
         if (!folioLoaded && window.location.hash === "#portfolio") {
             var nscript = $("#portfolio noscript")[0];
-            nscript.parentElement.innerHTML = nscript.innerHTML;
+            if (!nscript) return;
+            nscript.parentElement.innerHTML = 
+                nscript.textContent || nscript.innerHTML;
         }
     }
 };
