@@ -15,6 +15,7 @@ def make_thumb(infile, basepath):
     name, ext = os.path.splitext(infile)
     im = Image.open(os.path.join(basepath,infile))
     im.thumbnail(size, Image.ANTIALIAS)
+    im = im.convert('RGB')
     im.save(os.path.join(basepath, "thumbs/", name+".jpg"), "JPEG")
 
 def get_thumb(path):
@@ -47,4 +48,4 @@ env = Environment(loader=loader)
 t = env.get_template('index.html')
 with open("index.html", "w") as f:
     x = t.render(images=template_images)
-    f.write(x.encode('utf-8'))
+    f.write(x)
